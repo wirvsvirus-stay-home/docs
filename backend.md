@@ -1,8 +1,12 @@
 # Backend: Lorem Ipsum
 
-_Version 0.3.0_
+_Version 0.4.0_
 
 ## Changelog
+
+### 0.4.0
+
+* Beispiel-Response von `GET /users/:id` aktualisiert
 
 ### 0.3.0
 
@@ -11,7 +15,8 @@ _Version 0.3.0_
 
 ### 0.2.0
 
-* `POST /users` aktualisert
+* Beispiel-Request von `POST /users` aktualisert
+* Beispiel-Response von `POST /users` aktualisert
 
 ### 0.1.0
 
@@ -102,14 +107,17 @@ Gibt Daten zu Benutzer mit der ID `id` zurück
 
 ```json
 {
-    "username": "Yellow Elephant",
-    "rank": 2,
-    "score": 950,
-    "countryCode": "DE",
-    "latitude": 37.285951,
-    "longitude": -121.936650,
-    "radius": 100,
-    "baseStatus": "PROTECTED"
+      "id": "d1053640-225d-44fd-9d16-572889052979",
+      "username": "Pink Mouse",
+      "country": "DE",
+      "score": 750,
+      "rank": 2,
+      "baseStatus": "UNPROTECTED",
+      "latitude": "37.285951",
+      "longitude": "-121.93665",
+      "radius": 100,
+      "createdAt": "2020-03-21T23:26:05.000Z",
+      "updatedAt": "2020-03-21T23:26:05.000Z"
 }
 ```
 
