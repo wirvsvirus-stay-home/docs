@@ -1,3 +1,15 @@
+# Backend: Lorem Ipsum
+
+_Version 0.1.0_
+
+## Changelog
+
+### 0.1.0
+
+* Username wird nun vom Backend bei `POST /users` automatisch generiert un zurückgegeben
+
+## Einleitung
+
 Für den Prototypen beschränken wir uns auf folgende zu erfassende Benutzerdaten
 
 - Device-ID (`deviceId`)
@@ -25,7 +37,6 @@ Erstellt einen Benutzer
 ```json
 {
     "deviceId": "1234-5678-9012",
-    "username": "alex",
     "countryCode": "DE",
     "latitude": 37.285951,
     "longitude": -121.936650,
@@ -38,7 +49,15 @@ Erstellt einen Benutzer
 ```json
 {
     "status": 201,
-    "message": "Created"
+    "message": "Created",
+    "user": {
+        "deviceId": "1234-5678-9012",
+        "username": "Yellow Elephant",
+        "countryCode": "DE",
+        "latitude": 37.285951,
+        "longitude": -121.936650,
+        "radius": 100        
+    }
 }
 ```
 
@@ -51,7 +70,9 @@ Gibt einen Benutzer zurück, dessen Basis momentan ungeschützt ist
 ```json
 {
     "deviceId": "1234-5678-6451",
-    "username": "alex"
+    "username": "Yellow Elephant",
+    "score": 800,
+    "rank": 3
 }
 ```
 
@@ -67,7 +88,7 @@ Gibt Daten zu Benutzer mit Device-ID `deviceId` zurück
 
 ```json
 {
-    "username": "alex",
+    "username": "Yellow Elephant",
     "rank": 2,
     "score": 950,
     "countryCode": "DE",
@@ -87,8 +108,7 @@ Aktualisiert einen Benutzer
 ##### Request
 
 ```json
-{
-    "username": "kim",
+{    
     "countryCode": "IT",
     "rank": 2,
     "score": 850,
