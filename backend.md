@@ -1,8 +1,12 @@
 # Backend: Lorem Ipsum
 
-_Version 0.1.0_
+_Version 0.2.0_
 
 ## Changelog
+
+### 0.2.0
+
+* `POST /users` aktualsiert
 
 ### 0.1.0
 
@@ -28,7 +32,9 @@ Eine Authentifizierung der Benutzer und deren Request/Aktionen erfolgt für den 
 
 ### `POST /users`
 
-Erstellt einen Benutzer
+Erstellt einen Benutzer.
+
+* Username wird automatisch generiert
 
 #### Beispiel
 
@@ -36,8 +42,8 @@ Erstellt einen Benutzer
 
 ```json
 {
-    "deviceId": "1234-5678-9012",
-    "countryCode": "DE",
+    "deviceId": "7970952c31c87d2be1029c7ba5c564a28a6fa6cbf62518e27cde4c5c7c86045a",
+    "country": "DE",
     "latitude": 37.285951,
     "longitude": -121.936650,
     "radius": 100
@@ -51,12 +57,18 @@ Erstellt einen Benutzer
     "status": 201,
     "message": "Created",
     "user": {
-        "deviceId": "1234-5678-9012",
+        "id": 2,
+        "deviceId": "7970952c31c87d2be1029c7ba5c564a28a6fa6cbf62518e27cde4c5c7c86045a",
         "username": "Yellow Elephant",
-        "countryCode": "DE",
+        "country": "DE",
+        "score": 0,
+        "rank": 1,
+        "baseStatus": "PROTECTED",
         "latitude": 37.285951,
         "longitude": -121.936650,
-        "radius": 100        
+        "radius": 100,        
+        "createdAt": "2020-03-21T21:50:59.000Z",
+        "updatedAt": "2020-03-21T21:50:59.000Z"        
     }
 }
 ```
