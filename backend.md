@@ -1,12 +1,17 @@
 # Backend: Lorem Ipsum
 
-_Version 0.2.0_
+_Version 0.3.0_
 
 ## Changelog
 
+### 0.3.0
+
+* `deviceId` aus Benutzer entfernt
+* `id` von Benutzer ist nun UUIDv4
+
 ### 0.2.0
 
-* `POST /users` aktualsiert
+* `POST /users` aktualisert
 
 ### 0.1.0
 
@@ -16,13 +21,12 @@ _Version 0.2.0_
 
 Für den Prototypen beschränken wir uns auf folgende zu erfassende Benutzerdaten
 
-- Device-ID (`deviceId`)
-- Benutzername (`username`)
-- Land (`country`)
-- Score (`score`)
-- Rank (`rank`)
-- Status der Basis (`baseStatus`) (`PROTECTED` / `UNPROTECTED`)
-- Geofancing (`latitude`, `longitude`, `radius`)
+* Benutzername (`username`)
+* Land (`country`)
+* Score (`score`)
+* Rank (`rank`)
+* Status der Basis (`baseStatus`) (`PROTECTED` / `UNPROTECTED`)
+* Geofancing (`latitude`, `longitude`, `radius`)
 
 Zudem hält das Backend auch alle Daten für die Internationialiserung/I18N bereit.
 
@@ -42,7 +46,6 @@ Erstellt einen Benutzer.
 
 ```json
 {
-    "deviceId": "7970952c31c87d2be1029c7ba5c564a28a6fa6cbf62518e27cde4c5c7c86045a",
     "country": "DE",
     "latitude": 37.285951,
     "longitude": -121.936650,
@@ -57,8 +60,7 @@ Erstellt einen Benutzer.
     "status": 201,
     "message": "Created",
     "user": {
-        "id": 2,
-        "deviceId": "7970952c31c87d2be1029c7ba5c564a28a6fa6cbf62518e27cde4c5c7c86045a",
+        "id": "27591d77-5d72-4800-9695-53c939fae73e",
         "username": "Yellow Elephant",
         "country": "DE",
         "score": 0,
@@ -81,7 +83,7 @@ Gibt einen Benutzer zurück, dessen Basis momentan ungeschützt ist
 
 ```json
 {
-    "deviceId": "1234-5678-6451",
+    "id": "27591d77-5d72-4800-9695-53c939fae73e",
     "username": "Yellow Elephant",
     "score": 800,
     "rank": 3
@@ -90,9 +92,9 @@ Gibt einen Benutzer zurück, dessen Basis momentan ungeschützt ist
 
 
 
-### `GET /users/:deviceId`
+### `GET /users/:id`
 
-Gibt Daten zu Benutzer mit Device-ID `deviceId` zurück
+Gibt Daten zu Benutzer mit der ID `id` zurück
 
 #### Beispiel
 
@@ -111,7 +113,7 @@ Gibt Daten zu Benutzer mit Device-ID `deviceId` zurück
 }
 ```
 
-### `PUT /users/:deviceId`
+### `PUT /users/:id`
 
 Aktualisiert einen Benutzer
 
