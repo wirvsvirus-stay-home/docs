@@ -6,7 +6,7 @@ _Version 0.6.1_
 
 ### 0.6.1
 
-* `basStatus` von Benutzter um möglichen Status `ABANDONED` erweitert
+* `baseStatus` von Benutzter um möglichen Status `ABANDONED` erweitert
 
 ### 0.6.0
 
