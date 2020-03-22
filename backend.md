@@ -1,8 +1,13 @@
 # Backend: Lorem Ipsum
 
-_Version 0.4.0_
+_Version 0.5.0_
 
 ## Changelog
+
+### 0.5.0
+
+* Beispiel-Request von `PUT /users/:id` aktualisiert
+* Beispiel-Response von `PUT /users/:id` aktualisiert
 
 ### 0.4.0
 
@@ -123,7 +128,13 @@ Gibt Daten zu Benutzer mit der ID `id` zurück
 
 ### `PUT /users/:id`
 
-Aktualisiert einen Benutzer
+Aktualisiert einen Benutzer.
+
+Folgende Werte können aktualisiert werden, sind aber alle optional
+
+* `score`
+* `rank`
+* `baseStatus` 
 
 #### Beispiel
 
@@ -131,10 +142,8 @@ Aktualisiert einen Benutzer
 
 ```json
 {    
-    "countryCode": "IT",
     "rank": 2,
-    "score": 850,
-    "baseStatus": "PROTECTED"
+    "score": 850    
 }
 ```
 
