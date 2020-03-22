@@ -1,8 +1,15 @@
 # Backend: Lorem Ipsum
 
-_Version 0.6.1_
+_Version 0.7.0_
 
 ## Changelog
+
+### 0.7.0
+
+* `POST /actions/attack` hinzugefügt
+* `POST /actions/check-in` hinzugefügt
+* `GET /users?unprotected=1` entfernt
+* `tickets` zu User-Model hinzugefügt
 
 ### 0.6.1
 
@@ -53,6 +60,96 @@ Eine Authentifizierung der Benutzer und deren Request/Aktionen erfolgt für den 
 
 ## API
 
+### `POST /actions/attack`
+
+Führt eine Attacke aus. 
+
+#### Beispiel
+
+##### Request
+
+Header muss `X-User-Id` mit der Benutzer-ID muss vorhanden sein.
+
+```sh
+curl -X "POST" "http://localhost:3000/actions/attack" \
+     -H 'X-User-Id: 3f6ffbc8-2648-4b93-a132-667ef48a1138' \
+     -H 'Content-Type: application/json; charset=utf-8' \
+     -d $'{}'
+```
+
+##### Response
+
+```json
+{
+  "status": 201,
+  "message": "CREATED",
+  "user": {
+    "username": "Yellow Cat"
+  },
+  "action": {
+    "id": "620cc1ee-b79d-4a5d-8853-5a787190ab3b",
+    "type": "ATTACK",
+    "amount": 100,
+    "userId": "3f6ffbc8-2648-4b93-a132-667ef48a1138",
+    "updatedAt": "2020-03-22T15:20:45.899Z",
+    "createdAt": "2020-03-22T15:20:45.899Z"
+  }
+}
+
+```
+
+Ist kein Benutzer mit einer `UNPROTECTED` Base vorhanden, dann ist `user=null` und `action.amount` verdoppelt.
+
+```json
+{
+  "status": 201,
+  "message": "CREATED",
+  "user": null,
+  "action": {
+    "id": "629f898c-e0b3-4646-9f3f-5337f47cd2fa",
+    "type": "ATTACK",
+    "amount": 200,
+    "userId": "3f6ffbc8-2648-4b93-a132-667ef48a1138",
+    "updatedAt": "2020-03-22T15:22:29.708Z",
+    "createdAt": "2020-03-22T15:22:29.708Z"
+  }
+}
+```
+
+### `POST /actions/check-in`
+
+Führt einen Check-In aus. 
+
+#### Beispiel
+
+##### Request
+
+Header muss `X-User-Id` mit der Benutzer-ID muss vorhanden sein.
+
+```sh
+curl -X "POST" "httpw://www.cguard.de/api/v1/actions/check-in" \
+     -H 'X-User-Id: 3f6ffbc8-2648-4b93-a132-667ef48a1138' \
+     -H 'Content-Type: application/json; charset=utf-8' \
+     -d $'{}'
+```
+
+##### Response
+
+```json
+{
+  "status": 201,
+  "message": "Created",
+  "action": {
+    "id": "4fcb8ce6-6fdc-4f2f-9939-06d11c474fe4",
+    "userId": "3f6ffbc8-2648-4b93-a132-667ef48a1138",
+    "type": "CHECK_IN",
+    "amount": 100,
+    "updatedAt": "2020-03-22T14:54:33.184Z",
+    "createdAt": "2020-03-22T14:54:33.184Z"
+  }
+}
+```
+
 ### `POST /users`
 
 Erstellt einen Benutzer.
@@ -93,23 +190,6 @@ Erstellt einen Benutzer.
     }
 }
 ```
-
-
-
-### `GET /users?unprotected=1`
-
-Gibt einen Benutzer zurück, dessen Basis momentan ungeschützt ist
-
-```json
-{
-    "id": "27591d77-5d72-4800-9695-53c939fae73e",
-    "username": "Yellow Elephant",
-    "score": 800,
-    "rank": 3
-}
-```
-
-
 
 ### `GET /users/:id`
 
