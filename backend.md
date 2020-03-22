@@ -239,6 +239,15 @@ Gibt Score-History zu Benutzer mit der ID `id` zurück
 
 #### Beispiel
 
+##### Request
+
+````sh
+## Request Duplicate (3)
+curl "https://www.cguard.de/api/v1/users/d1053640-225d-44fd-9d16-572889052979/history" \
+     -H 'Content-Type: application/json; charset=utf-8' \
+     -d $'{}'
+````
+
 ##### Response
 
 ```json
