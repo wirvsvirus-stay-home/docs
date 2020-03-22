@@ -1,8 +1,12 @@
 # Backend: Lorem Ipsum
 
-_Version 0.6.0_
+_Version 0.6.1_
 
 ## Changelog
+
+### 0.6.1
+
+* `basStatus` von Benutzter um möglichen Status `ABANDONED` erweitert
 
 ### 0.6.0
 
@@ -40,7 +44,7 @@ Für den Prototypen beschränken wir uns auf folgende zu erfassende Benutzerdate
 * Land (`country`)
 * Score (`score`)
 * Rank (`rank`)
-* Status der Basis (`baseStatus`) (`PROTECTED` / `UNPROTECTED`)
+* Status der Basis (`baseStatus`) (`PROTECTED`, `ABANDONED` / `UNPROTECTED`)
 * Geofancing (`latitude`, `longitude`, `radius`)
 
 Zudem hält das Backend auch alle Daten für die Internationialiserung/I18N bereit.
