@@ -1,8 +1,13 @@
 # Backend: Lorem Ipsum
 
-_Version 0.5.0_
+_Version 0.6.0_
 
 ## Changelog
+
+### 0.6.0
+
+* Beschreibung von `GET /leaders` aktualisert
+* Invalides JSON in Beispielen korrigiert
 
 ### 0.5.0
 
@@ -160,7 +165,7 @@ Folgende Werte können aktualisiert werden, sind aber alle optional
 
 ### `GET /leaders`
 
-Gibt Liste von *n* (20 oder so) Benutzern absteigend sortiert nach Score zurück.
+Gibt Liste von 10 Benutzern absteigend sortiert nach Rank und Score zurück.
 
 #### Beispiel
 
@@ -172,16 +177,18 @@ Gibt Liste von *n* (20 oder so) Benutzern absteigend sortiert nach Score zurück
         {
             "username": "alex",
             "score": 1250,
-            "countryCode": "DE"
+            "rank": 1250,
+            "country": "DE"
         },
-        // ...
+        { "...": "..." },
+        { "...": "..." },
   ]  
 }
 ```
 
-### `GET /i18n/:countryCode`
+### `GET /i18n/:country`
 
-Gibt Sprachdefintion zu `countryCode` zurück
+Gibt Sprachdefintion zu `country` zurück
 
 #### Beispiel
 
@@ -191,6 +198,6 @@ Gibt Sprachdefintion zu `countryCode` zurück
 {
     "welcome": "Hallo :username:",
     "save": "Speichern",
-    // ....
+    "...": "..."
 }
 ```
