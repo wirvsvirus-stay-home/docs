@@ -1,8 +1,12 @@
 # Backend: Lorem Ipsum
 
-_Version 0.8.0_
+_Version 0.9.0_
 
 ## Changelog
+
+### 0.9.0
+
+* `GET /users/:id/history` hinzugefügt 
 
 ### 0.8.0
 
@@ -226,6 +230,28 @@ Gibt Daten zu Benutzer mit der ID `id` zurück
       "radius": 100,
       "createdAt": "2020-03-21T23:26:05.000Z",
       "updatedAt": "2020-03-21T23:26:05.000Z"
+}
+```
+
+### `GET /users/:id/history`
+
+Gibt Score-History zu Benutzer mit der ID `id` zurück
+
+#### Beispiel
+
+##### Response
+
+```json
+{
+  "content": [
+    {
+      "id": "32445d8d-842b-49b3-ae90-528285474b4d",
+      "type": "ATTACK",
+      "amount": 200,
+      "createdAt": "2020-03-22T17:15:23.000Z"
+    },
+    { "...": "..." }
+  ]
 }
 ```
 
