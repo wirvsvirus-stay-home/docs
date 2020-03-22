@@ -1,8 +1,12 @@
 # Backend: Lorem Ipsum
 
-_Version 0.7.0_
+_Version 0.8.0_
 
 ## Changelog
+
+### 0.8.0
+
+* `POST /actions/check-in` gibt bei verfrühten Check-In nun Anzahl der Sekunden zum nächsten möglichen Check-In zurück
 
 ### 0.7.0
 
@@ -147,6 +151,16 @@ curl -X "POST" "httpw://www.cguard.de/api/v1/actions/check-in" \
     "updatedAt": "2020-03-22T14:54:33.184Z",
     "createdAt": "2020-03-22T14:54:33.184Z"
   }
+}
+```
+
+Wenn Check-In noch nicht erlaubt
+
+```json
+{
+  "status": 423,
+  "message": "Locked",
+  "secondsToWait": 3156
 }
 ```
 
